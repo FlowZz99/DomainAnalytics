@@ -1,0 +1,12 @@
+#Storage type (MYSQL or FLAT file .yml)
+Storage: FLAT
+
+#Flat file save settings (in seconds)
+save-interval: 300
+
+#Mysql credentials
+host: 127.0.0.1
+port: 3306
+database: database
+username: root
+password: password
