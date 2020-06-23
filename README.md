@@ -2,7 +2,7 @@
 
 Bungeecord plugin that allow you to track from which address your users connect to the server
 
-**Commands**
+## Commands
 ```
 /da list - (domainanalytics.command.use)
 ```
