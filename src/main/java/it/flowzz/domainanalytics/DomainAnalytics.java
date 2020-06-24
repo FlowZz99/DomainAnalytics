@@ -33,7 +33,8 @@ public class DomainAnalytics extends Plugin {
     @Override
     public void onDisable() {
         storage.save(joinCache);
-        this.getProxy().getPluginManager().unregisterListeners(this);
+        getProxy().getPluginManager().unregisterListeners(this);
+        getProxy().getScheduler().cancel(this);
         joinCache.clear();
     }
 
