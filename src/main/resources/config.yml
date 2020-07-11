@@ -4,6 +4,10 @@ Storage: FLAT
 #Flat file save settings (in seconds)
 save-interval: 300
 
+#Domain to deny access (IMPORTANT: Write it lowercase)
+blacklisted-hostnames:
+  - mc.example.net
+
 #Mysql credentials
 host: 127.0.0.1
 port: 3306

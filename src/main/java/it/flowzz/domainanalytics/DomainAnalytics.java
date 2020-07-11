@@ -18,12 +18,13 @@ public class DomainAnalytics extends Plugin {
 
     private Storage storage;
     private Configuration config;
+    private Configuration lang;
     private HashMap<String,Integer> joinCache;
 
     @Override
     public void onEnable() {
         joinCache = new HashMap<>();
-        setupConfig();
+        setupConfigs();
         setupStorage();
         registerListeners();
         registerCommands();
@@ -57,7 +58,8 @@ public class DomainAnalytics extends Plugin {
 
     private void registerCommands() { getProxy().getPluginManager().registerCommand(this, new DomainAnalyticsCmd(this)); }
 
-    private void setupConfig() {
+    private void setupConfigs() {
             this.config = ConfigUtils.saveDefaultConfig(this,"config.yml");
+            this.lang = ConfigUtils.saveDefaultConfig(this, "lang.yml");
     }
 }
