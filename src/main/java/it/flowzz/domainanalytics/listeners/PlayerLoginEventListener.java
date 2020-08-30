@@ -2,7 +2,6 @@ package it.flowzz.domainanalytics.listeners;
 
 import it.flowzz.domainanalytics.DomainAnalytics;
 import net.md_5.bungee.api.ChatColor;
-import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.event.PostLoginEvent;
 import net.md_5.bungee.api.event.PreLoginEvent;

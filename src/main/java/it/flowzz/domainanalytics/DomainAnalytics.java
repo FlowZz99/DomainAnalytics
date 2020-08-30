@@ -12,6 +12,7 @@ import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 
 import java.util.HashMap;
+import java.util.logging.Level;
 
 @Getter
 public class DomainAnalytics extends Plugin {
@@ -34,9 +35,14 @@ public class DomainAnalytics extends Plugin {
     @Override
     public void onDisable() {
         storage.save(joinCache);
-        getProxy().getPluginManager().unregisterListeners(this);
-        getProxy().getScheduler().cancel(this);
         joinCache.clear();
+        disable();
+    }
+
+    private void disable() {
+        getProxy().getPluginManager().unregisterListeners(this);
+        getProxy().getPluginManager().unregisterCommands(this);
+        getProxy().getScheduler().cancel(this);
     }
 
     private void setupStorage() {
@@ -47,6 +53,10 @@ public class DomainAnalytics extends Plugin {
                 break;
             case MYSQL:
                 storage = new StorageMySql(this);
+                break;
+            default:
+                getProxy().getLogger().log(Level.SEVERE, "No valid StorageType found, shutting down the plugin!");
+                disable();
                 break;
         }
         storage.load(joinCache);

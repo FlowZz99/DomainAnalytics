@@ -10,7 +10,10 @@ public class StorageMySql implements Storage {
 
     private DomainAnalytics plugin;
     private Connection connection;
-    private String host, database, username, password;
+    private String host;
+    private String database;
+    private String username;
+    private String password;
     private int port;
 
     public StorageMySql(DomainAnalytics plugin) {
